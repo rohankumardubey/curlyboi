@@ -2,11 +2,12 @@
 name: cibuildwheel
 
 on:
-  workflow_dispatch:
+  push:
+    tags:
+      - '*'
 
 env:
-  CIBW_BUILD: cp38-*
-  CIBW_SKIP: "*-manylinux_i686"
+  CIBW_SKIP: "cp27-* cp35-* pp* *-manylinux_i686"
   CIBW_BEFORE_BUILD_LINUX: "yum install -y ncurses-devel"
   CIBW_REPAIR_WHEEL_COMMAND_LINUX: "auditwheel repair -w {dest_dir} {wheel}"
   CIBW_BEFORE_BUILD_MACOS: "brew install ncurses"
@@ -37,3 +38,19 @@ jobs:
       - uses: actions/upload-artifact@v2
         with:
           path: ./wheelhouse/*.whl
+
+  upload_pypi:
+    needs: [build_wheels]
+    runs-on: ubuntu-latest
+    # upload to PyPI on every tag starting with 'v'
+    if: github.event_name == 'push' && startsWith(github.event.ref, 'refs/tags/v')
+    steps:
+      - uses: actions/download-artifact@v2
+        with:
+          name: artifact
+          path: dist
+
+      - uses: pypa/gh-action-pypi-publish@master
+        with:
+          user: __token__
+          password: ${{ secrets.pypi_password }}
