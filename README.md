@@ -6,6 +6,8 @@ A simple [curlyboi](https://github.com/glasnt/curlyboi) game written in C using 
 
 ## Installation
 
+Currently, only Linux and macOS are supported. You can simply using `pip` to install `curlyboi`:
+
 ```
 $ pip install curlyboi
 ```
@@ -18,7 +20,7 @@ $ curlyboi
 
 ## Versioning
 
-curlyboi uses [Semantic Versioning](https://semver.org/). For the available versions, see the tags on this repository.
+`curlyboi` uses [Semantic Versioning](https://semver.org/). For the available versions, see the tags on this repository.
 
 ## License
 
