@@ -2,7 +2,7 @@
 
 ![demo](curlyboi.gif)
 
-Simple [curlyboi](https://github.com/glasnt/curlyboi) game written in C using ncurses.
+A simple [curlyboi](https://github.com/glasnt/curlyboi) game written in C using ncurses.
 
 ## Installation
 
