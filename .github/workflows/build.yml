@@ -1,0 +1,39 @@
+# Automatically build binary wheels and source packages.
+name: cibuildwheel
+
+on:
+  workflow_dispatch:
+
+env:
+  CIBW_BUILD: cp38-*
+  CIBW_SKIP: "*-manylinux_i686"
+  CIBW_BEFORE_BUILD_LINUX: "yum install -y ncurses-devel"
+  CIBW_REPAIR_WHEEL_COMMAND_LINUX: "auditwheel repair -w {dest_dir} {wheel}"
+  CIBW_BEFORE_BUILD_MACOS: "brew install ncurses"
+  CIBW_REPAIR_WHEEL_COMMAND_MACOS: "delocate-listdeps {wheel} && delocate-wheel -w {dest_dir} -v {wheel}"
+
+jobs:
+  build_wheels:
+    name: Build wheels on ${{ matrix.os }}
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os: [ubuntu-18.04, macos-latest]
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - uses: actions/setup-python@v2
+        name: Install Python
+        with:
+          python-version: '3.8'
+
+      - name: Install cibuildwheel & build wheels (Linux & MacOS)
+        if: runner.os != 'Windows'
+        run: |
+          python -m pip --disable-pip-version-check install cibuildwheel==1.6.1
+          python -m cibuildwheel --output-dir wheelhouse
+
+      - uses: actions/upload-artifact@v2
+        with:
+          path: ./wheelhouse/*.whl
