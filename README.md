@@ -6,7 +6,9 @@ A simple [curlyboi](https://github.com/glasnt/curlyboi) game written in C using 
 
 ## Installation
 
-Currently, only Linux and macOS are supported. You can simply using `pip` to install `curlyboi`:
+Currently, only Linux and macOS are supported.
+
+You can use `pip` to install `curlyboi`:
 
 ```
 $ pip install curlyboi
