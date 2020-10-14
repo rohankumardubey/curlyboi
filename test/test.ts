@@ -14,8 +14,6 @@
     fail_unless(board->snake != NULL);
     fail_unless(board->snake->x == 0);
 
-
-
 #test test_move_snake_length_1
     PointList* snake = create_cell(0, 0);
     Board* board = create_board(snake, NULL, 2, 2);
@@ -46,7 +44,6 @@
     move_snake(board, DOWN);
     fail_unless(board->snake->x == 2);
     fail_unless(board->snake->y == 3);
-
 
 #test test_move_snake_normally
     PointList* snake = create_cell(2, 2);
@@ -142,17 +139,14 @@
 
     fail_unless(board->foods->x != 2 || board->foods->y != 2);
 
-
 #test test_remove_from_list_true
     PointList* cell = create_cell(1, 2);
     PointList* list = create_cell(2, 2);
     list->next = create_cell(1, 2);
     fail_unless(remove_from_list(cell, &list));
 
-
 #test test_remove_from_list_false
     PointList* cell = create_cell(3, 2);
     PointList* list = create_cell(2, 2);
     list->next = create_cell(1, 2);
     fail_unless(!remove_from_list(cell, &list));
-
