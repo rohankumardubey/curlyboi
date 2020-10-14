@@ -27,3 +27,5 @@ $ curlyboi
 ## License
 
 This project is licensed under the MIT License, see the [LICENSE](https://raw.githubusercontent.com/vinayak-mehta/curlyboi/master/LICENSE) file for details.
+
+![wildboi](https://github.com/vinayak-mehta/curlyboi/raw/master/wildboi.gif)
