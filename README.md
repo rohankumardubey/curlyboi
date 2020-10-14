@@ -1,6 +1,6 @@
 # curlyboi
 
-![demo](curlyboi.gif)
+![demo](https://github.com/vinayak-mehta/curlyboi/raw/master/curlyboi.gif)
 
 A simple [curlyboi](https://github.com/glasnt/curlyboi) game written in C using ncurses.
 
