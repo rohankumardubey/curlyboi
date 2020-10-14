@@ -24,18 +24,6 @@ void display_snake(Point* snake, enum Direction dir) {
     const wchar_t* symbol = L"▛";
 
     while (snake) {
-        if (pos % 5 == 0) {
-            attron(COLOR_PAIR(1));
-        } else if (pos % 5 == 1) {
-            attron(COLOR_PAIR(2));
-        } else if (pos % 5 == 2) {
-            attron(COLOR_PAIR(3));
-        } else if (pos % 5 == 3) {
-            attron(COLOR_PAIR(4));
-        } else if (pos % 5 == 4) {
-            attron(COLOR_PAIR(5));
-        }
-
         switch (dir) {
             case UP:
                 symbol = snake->y % 2 == 0 ? L"▟" : L"▙";
@@ -50,6 +38,7 @@ void display_snake(Point* snake, enum Direction dir) {
                 symbol = snake->x % 2 == 0 ? L"▛" : L"▙";
                 break;
         }
+        attron(COLOR_PAIR((pos % 5) + 1));
         mvaddwstr(snake->y, snake->x, symbol);
 
         pos = pos + 1;
