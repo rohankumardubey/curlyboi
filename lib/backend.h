@@ -2,7 +2,7 @@
 #include <stdbool.h>
 #include <ncurses.h>
 
-enum Direction { UP, DOWN, LEFT, RIGHT };
+enum Direction { UP, DOWN, LEFT, RIGHT, OUT };
 enum Status { SUCCESS, FAILURE };
 
 struct Point {

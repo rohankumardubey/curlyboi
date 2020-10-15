@@ -20,6 +20,10 @@ $ pip install curlyboi
 $ curlyboi
 ```
 
+You can use arrow keys to move. And press `q` to quit.
+
+`curlyboi` works best on terminal emulators that support wide unicode characters. On some of them, you might have to prefix the above command with `TERM=xterm`.
+
 ## Versioning
 
 `curlyboi` uses [Semantic Versioning](https://semver.org/). For the available versions, see the tags on this repository.

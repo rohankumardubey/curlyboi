@@ -42,6 +42,7 @@ void game() {
         display_foods(board->foods);
         refresh();  // print new things
         dir = get_next_move(dir);
+        if (dir == OUT) break;
         enum Status status = move_snake(board, dir);
         if (status == FAILURE) break;
     }

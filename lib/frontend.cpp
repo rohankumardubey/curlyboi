@@ -14,6 +14,8 @@ enum Direction get_next_move(enum Direction previous) {
             if (previous != UP) return DOWN;
         case KEY_UP:
             if (previous != DOWN) return UP;
+        case 113:  // q
+            return OUT;
         default:
             return previous;
     }
@@ -29,10 +31,10 @@ void display_snake(Point* snake, enum Direction dir) {
                 symbol = snake->y % 2 == 0 ? L"▟" : L"▙";
                 break;
             case DOWN:
-                symbol = snake->y % 2 == 0 ? L"▛" : L"▜";
+                symbol = snake->y % 2 == 0 ? L"▜" : L"▛";
                 break;
             case LEFT:
-                symbol = snake->x % 2 == 0 ? L"▟" : L"▜";
+                symbol = snake->x % 2 == 0 ? L"▜" : L"▟";
                 break;
             case RIGHT:
                 symbol = snake->x % 2 == 0 ? L"▛" : L"▙";
