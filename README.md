@@ -22,7 +22,9 @@ $ curlyboi
 
 You can use arrow keys to move. And press `q` to quit.
 
-`curlyboi` works best on terminal emulators that support wide unicode characters. On some of them, you might have to prefix the above command with `TERM=xterm`.
+`curlyboi` works best on terminals that support wide unicode characters.
+
+On some terminals, you might have to prefix the above command with `TERM=xterm`.
 
 ## Versioning
 
